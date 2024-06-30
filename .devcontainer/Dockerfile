@@ -58,7 +58,8 @@ COPY zshrc-entrypoint-init.d /etc/zshrc-entrypoint-init.d
 USER ${user_name}
 WORKDIR /home/${user_name}
 
-RUN pip install --upgrade pip && pip install pipenv
+RUN pip install --no-cache-dir --upgrade pip && \
+  pip install --no-cache-dir pipenv
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
