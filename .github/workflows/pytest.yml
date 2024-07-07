@@ -1,0 +1,22 @@
+name: pytest
+on:
+  [push]
+jobs:
+  pytest:
+    name: Run tests with pytest
+    runs-on: ubuntu-latest
+    steps:
+      # See: https://github.com/actions/checkout
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install pipenv
+        run: pipx install pipenv
+      # See: https://github.com/actions/setup-python
+      - name: Set up pipenv
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: "pipenv"
+      - run: pipenv install
+      - name: Test with pytest
+        run: pipenv run pytest -v -s
