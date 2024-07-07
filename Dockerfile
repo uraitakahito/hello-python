@@ -1,13 +1,9 @@
 # Debian 12
 FROM python:3.12.4-bookworm
 
-ARG user_id=501
-ARG group_id=20
 ARG user_name=developer
-# The WORKDIR instruction can resolve environment variables previously set using ENV.
-# You can only use environment variables explicitly set in the Dockerfile.
-# https://docs.docker.com/engine/reference/builder/#/workdir
-ARG home=/home/${user_name}
+ARG user_id
+ARG group_id
 
 RUN apt-get update -qq && \
   apt-get upgrade -y -qq && \
@@ -16,20 +12,6 @@ RUN apt-get update -qq && \
     git && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
-
-#
-# Add user.
-#
-#   Someone uses devcontainer, but the others don't.
-#   That is why dockerfile calls `features` MANUALLY here without devcontainer.json.
-#
-RUN cd /usr/src && \
-  git clone --depth 1 https://github.com/devcontainers/features.git && \
-  USERNAME=${user_name} \
-  UID=${user_id} \
-  GID=${group_id} \
-  CONFIGUREZSHASDEFAULTSHELL=true \
-    /usr/src/features/src/common-utils/install.sh
 
 #
 # Install packages
@@ -54,6 +36,16 @@ COPY docker-entrypoint.sh /usr/local/bin/
 
 COPY zshrc-entrypoint-init.d /etc/zshrc-entrypoint-init.d
 
+#
+# Add user and install basic tools.
+#
+RUN cd /usr/src && \
+  git clone --depth 1 https://github.com/uraitakahito/features.git && \
+  USERNAME=${user_name} \
+  USERUID=${user_id} \
+  USERGID=${group_id} \
+  CONFIGUREZSHASDEFAULTSHELL=true \
+    /usr/src/features/src/common-utils/install.sh
 USER ${user_name}
 WORKDIR /home/${user_name}
 
