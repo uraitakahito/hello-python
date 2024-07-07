@@ -10,3 +10,10 @@ Run docker containers:
 ```console
 % docker container run -it --rm --init --mount type=bind,src=`pwd`,dst=/app --name $PROJECT-container $PROJECT-image /bin/zsh
 ```
+
+Run the following commands inside the Docker containers:
+
+```console
+% pipenv install
+% pipenv run pytest
+```
