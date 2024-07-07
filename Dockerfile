@@ -8,7 +8,6 @@ ARG user_name=developer
 # You can only use environment variables explicitly set in the Dockerfile.
 # https://docs.docker.com/engine/reference/builder/#/workdir
 ARG home=/home/${user_name}
-ARG ruby_version=3.1.4
 
 RUN apt-get update -qq && \
   apt-get upgrade -y -qq && \
@@ -51,7 +50,7 @@ RUN apt-get update -qq && \
   apt-get clean && \
   rm -rf /var/lib/apt/lists/*
 
-COPY bin/docker-entrypoint.sh /usr/local/bin/
+COPY docker-entrypoint.sh /usr/local/bin/
 
 COPY zshrc-entrypoint-init.d /etc/zshrc-entrypoint-init.d
 
