@@ -49,8 +49,11 @@ RUN cd /usr/src && \
     /usr/src/features/src/common-utils/install.sh
 USER ${user_name}
 
+#
+# poetry
+#
 RUN pip install --no-cache-dir --upgrade pip && \
-  pip install --no-cache-dir pipenv
+  pip install --no-cache-dir poetry
 
 #
 # dotfiles
