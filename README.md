@@ -14,6 +14,7 @@ Run docker containers:
 Run the following commands inside the Docker containers:
 
 ```console
+% cd /app
 % pipenv install
 % pipenv run pytest
 ```
