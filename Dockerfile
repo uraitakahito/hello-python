@@ -55,6 +55,8 @@ RUN apt-get update -qq && \
 COPY docker-entrypoint.sh /usr/local/bin/
 COPY zshrc-entrypoint-init.d /etc/zshrc-entrypoint-init.d
 
+RUN git config --system --add safe.directory /app
+
 #
 # Add user and install basic tools.
 #
