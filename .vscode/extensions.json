@@ -1,0 +1,9 @@
+{
+  "recommendations": [
+    "eamodio.gitlens",
+    "GitHub.copilot",
+    "GitHub.vscode-github-actions",
+    "ms-python.python",
+    "oderwat.indent-rainbow",
+  ]
+}

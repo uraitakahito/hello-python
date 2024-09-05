@@ -28,7 +28,6 @@ RUN apt-get update -qq && \
   rm -rf /var/lib/apt/lists/*
 
 COPY docker-entrypoint.sh /usr/local/bin/
-COPY zshrc-entrypoint-init.d /etc/zshrc-entrypoint-init.d
 
 RUN git config --system --add safe.directory /app
 
