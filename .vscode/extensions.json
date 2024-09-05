@@ -5,5 +5,16 @@
     "GitHub.vscode-github-actions",
     "ms-python.python",
     "oderwat.indent-rainbow",
+    //
+		// Others
+    //
+    // https://marketplace.visualstudio.com/items?itemName=jasonnutter.vscode-codeowners
+		"jasonnutter.vscode-codeowners",
+    // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
+		"redhat.vscode-yaml",
+    // https://marketplace.visualstudio.com/items?itemName=timonwong.shellcheck
+		"timonwong.shellcheck",
+    // https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+		"usernamehw.errorlens",
   ]
 }
