@@ -1,5 +1,5 @@
 # Debian 12
-FROM python:3.12.4-bookworm
+FROM python:3.12.5-bookworm
 
 ARG user_name=developer
 ARG user_id
