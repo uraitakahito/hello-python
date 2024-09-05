@@ -7,14 +7,6 @@ ARG group_id
 ARG dotfiles_repository="https://github.com/uraitakahito/dotfiles.git"
 ARG features_repository="https://github.com/uraitakahito/features.git"
 
-RUN apt-get update -qq && \
-  apt-get upgrade -y -qq && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
-    ca-certificates \
-    git && \
-  apt-get clean && \
-  rm -rf /var/lib/apt/lists/*
-
 #
 # Install packages
 #
@@ -22,6 +14,8 @@ RUN apt-get update -qq && \
   apt-get upgrade -y -qq && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
     # Basic
+    ca-certificates \
+    git \
     iputils-ping \
     # Editor
     vim emacs \
