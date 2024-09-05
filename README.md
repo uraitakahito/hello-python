@@ -17,4 +17,6 @@ Run the following commands inside the Docker containers:
 % cd /app
 % poetry install
 % poetry run pytest
+% poetry run ruff check prime.py
+% poetry run invoke -l
 ```
