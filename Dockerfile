@@ -15,7 +15,6 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install packages
 #
 RUN apt-get update -qq && \
-  apt-get upgrade -y -qq && \
   apt-get install -y -qq --no-install-recommends \
     # Basic
     ca-certificates \
