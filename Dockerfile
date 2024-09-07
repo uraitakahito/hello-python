@@ -1,18 +1,21 @@
 # Debian 12
-FROM python:3.12.5-bookworm
+FROM debian:bookworm-20240904
 
 ARG user_name=developer
 ARG user_id
 ARG group_id
 ARG dotfiles_repository="https://github.com/uraitakahito/dotfiles.git"
 ARG features_repository="https://github.com/uraitakahito/features.git"
+ARG python_version=3.12.5
+
+# Avoid warnings by switching to noninteractive for the build process
+ENV DEBIAN_FRONTEND=noninteractive
 
 #
 # Install packages
 #
 RUN apt-get update -qq && \
-  apt-get upgrade -y -qq && \
-  DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends \
+  apt-get install -y -qq --no-install-recommends \
     # Basic
     ca-certificates \
     git \
@@ -32,23 +35,35 @@ COPY docker-entrypoint.sh /usr/local/bin/
 RUN git config --system --add safe.directory /app
 
 #
-# Add user and install basic tools.
+# clone features
 #
 RUN cd /usr/src && \
-  git clone --depth 1 ${features_repository} && \
-  USERNAME=${user_name} \
-  USERUID=${user_id} \
-  USERGID=${group_id} \
-  CONFIGUREZSHASDEFAULTSHELL=true \
-  UPGRADEPACKAGES=false \
-    /usr/src/features/src/common-utils/install.sh
+  git clone --depth 1 ${features_repository}
+
+#
+# Add user and install basic tools.
+#
+RUN USERNAME=${user_name} \
+    USERUID=${user_id} \
+    USERGID=${group_id} \
+    CONFIGUREZSHASDEFAULTSHELL=true \
+    UPGRADEPACKAGES=false \
+      /usr/src/features/src/common-utils/install.sh
+
+#
+# Install Python
+#
+RUN USERNAME=${user_name} \
+    VERSION=${python_version} \
+      /usr/src/features/src/python/install.sh
+
 USER ${user_name}
 
 #
 # poetry
 #
-RUN pip install --no-cache-dir --upgrade pip && \
-  pip install --no-cache-dir poetry
+RUN /usr/local/python/current/bin/pip install --no-cache-dir --upgrade pip && \
+  /usr/local/python/current/bin/pip install --no-cache-dir poetry
 
 #
 # dotfiles
