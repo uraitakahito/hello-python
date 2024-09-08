@@ -14,7 +14,6 @@ Run docker containers:
 Run the following commands inside the Docker containers:
 
 ```console
-% cd /app
 % poetry install
 % poetry run pytest
 % poetry run ruff check prime.py
