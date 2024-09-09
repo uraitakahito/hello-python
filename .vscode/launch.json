@@ -14,6 +14,19 @@
       "env": {
         "PYTHONPATH": "${workspaceFolder}"
       }
+    },
+    {
+      "name": "Debug invoke task: hello",
+      "type": "debugpy",
+      "request": "launch",
+      // https://code.visualstudio.com/docs/python/debugging#_module
+      "module": "invoke",
+      "args": [
+        "hello",
+        "--name",
+        "hoge",
+      ],
+      "cwd": "${workspaceFolder}"
     }
   ]
 }
