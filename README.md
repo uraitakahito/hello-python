@@ -18,6 +18,8 @@ Run the following commands inside the Docker containers:
 % poetry run pytest
 % poetry run ruff check prime.py
 % poetry run invoke -l
-% poetry run invoke --help hello
-% poetry run invoke hello --name hoge
 ```
+
+Select **[Dev Containers: Attach to Running Container](https://code.visualstudio.com/docs/devcontainers/attach-container#_attach-to-a-docker-container)** through the **Command Palette (Shift + Command + p)**
+
+Finally, Open the `/app`.
