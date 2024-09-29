@@ -9,11 +9,6 @@ ARG features_repository="https://github.com/uraitakahito/features.git"
 ARG extra_utils_repository="https://github.com/uraitakahito/extra-utils.git"
 ARG python_version=3.12.5
 
-# Avoid warnings by switching to noninteractive for the build process
-ENV DEBIAN_FRONTEND=noninteractive
-
-COPY docker-entrypoint.sh /usr/local/bin/
-
 #
 # Git
 #
@@ -41,6 +36,15 @@ RUN USERNAME=${user_name} \
       /usr/src/features/src/common-utils/install.sh
 
 #
+# Install extra utils.
+#
+RUN cd /usr/src && \
+  git clone --depth 1 ${extra_utils_repository} && \
+  ADDEZA=true \
+  UPGRADEPACKAGES=false \
+    /usr/src/extra-utils/install.sh
+
+#
 # Install Python
 #   https://github.com/uraitakahito/features/blob/mymain/src/python/install.sh
 #
@@ -52,14 +56,7 @@ RUN USERNAME=${user_name} \
     VERSION=${python_version} \
       /usr/src/features/src/python/install.sh
 
-#
-# Install extra utils.
-#
-RUN cd /usr/src && \
-  git clone --depth 1 ${extra_utils_repository} && \
-  ADDEZA=true \
-  UPGRADEPACKAGES=false \
-    /usr/src/extra-utils/install.sh
+COPY docker-entrypoint.sh /usr/local/bin/
 
 USER ${user_name}
 
