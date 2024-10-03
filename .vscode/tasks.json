@@ -1,0 +1,13 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    // https://code.visualstudio.com/updates/v1_94#_python-default-problem-matcher
+    {
+      "label": "Run Python",
+      "type": "shell",
+      "command": "${command:python.interpreterPath}",
+      "args": ["${file}"],
+      "problemMatcher": "$python"
+    }
+  ]
+}
