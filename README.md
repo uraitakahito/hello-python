@@ -1,13 +1,13 @@
-Build the image:
+Build the Docker image:
 
 ```console
 % PROJECT=$(basename `pwd`) && docker image build -t $PROJECT-image . --build-arg user_id=`id -u` --build-arg group_id=`id -g`
 ```
 
-Run docker containers:
+Run the Docker container:
 
 ```console
-% docker container run -it --rm --init --mount type=bind,src=`pwd`,dst=/app --name $PROJECT-container $PROJECT-image /bin/zsh
+% docker container run -d --rm --init --mount type=bind,src=`pwd`,dst=/app --name $PROJECT-container $PROJECT-image
 ```
 
 Run the following commands inside the Docker containers:
