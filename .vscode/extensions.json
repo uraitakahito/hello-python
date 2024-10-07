@@ -18,8 +18,6 @@
     "GitHub.copilot",
     // https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions
     "GitHub.vscode-github-actions",
-    // https://marketplace.visualstudio.com/items?itemName=jasonnutter.vscode-codeowners
-    "jasonnutter.vscode-codeowners",
     // https://marketplace.visualstudio.com/items?itemName=oderwat.indent-rainbow
     "oderwat.indent-rainbow",
     // https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml
