@@ -14,6 +14,8 @@
     //
     // https://marketplace.visualstudio.com/items?itemName=dbankier.vscode-quick-select
     "dbankier.vscode-quick-select",
+    // https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+    "esbenp.prettier-vscode",
     // https://marketplace.visualstudio.com/items?itemName=GitHub.copilot
     "GitHub.copilot",
     // https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-pull-request-github

@@ -1,7 +1,11 @@
 {
-  "python.analysis.extraPaths": [
-    "/app/.venv/lib/python3.12/site-packages"
-  ],
+  //
+  // Prettier
+  //
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+
+  "python.analysis.extraPaths": ["/app/.venv/lib/python3.12/site-packages"],
   //
   // The Python extension supports testing with Python's built-in unittest framework and pytest.
   // https://code.visualstudio.com/docs/python/testing
@@ -13,5 +17,8 @@
   // Ruff
   //
   // https://docs.astral.sh/ruff/editors/settings/#interpreter
-  "ruff.interpreter": ["${workspaceFolder}/.venv/bin/python"]
+  "ruff.interpreter": ["${workspaceFolder}/.venv/bin/python"],
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  }
 }
