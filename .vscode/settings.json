@@ -8,11 +8,10 @@
   //
   "python.testing.unittestEnabled": false,
   "python.testing.pytestEnabled": true,
+
   //
-  // Use poetry
-  //   TODO:
-  //     python.pythonPath is deprecated, but it is set to use pytest and Testing extensions in the poetry environment.
-  //     https://github.com/microsoft/vscode-python/wiki/AB-Experiments/0c052a89db9a175b5ec0942e9fcf687fd87af323
-  "python.experiments.enabled": false,
-  "python.pythonPath": "${workspaceFolder}/.venv/bin/python",
+  // Ruff
+  //
+  // https://docs.astral.sh/ruff/editors/settings/#interpreter
+  "ruff.interpreter": ["${workspaceFolder}/.venv/bin/python"]
 }
