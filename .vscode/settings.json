@@ -5,7 +5,12 @@
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true,
 
+  //
+  // Python
+  //
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
   "python.analysis.extraPaths": ["/app/.venv/lib/python3.12/site-packages"],
+
   //
   // The Python extension supports testing with Python's built-in unittest framework and pytest.
   // https://code.visualstudio.com/docs/python/testing
