@@ -10,7 +10,7 @@ Run the Docker container:
 % docker container run -d --rm --init --mount type=bind,src=`pwd`,dst=/app --name $PROJECT-container $PROJECT-image
 ```
 
-Run the following commands inside the Docker containers:
+Run the following commands inside the Docker containers as needed:
 
 ```console
 % poetry install
