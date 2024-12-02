@@ -4,6 +4,7 @@
   // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
   "version": "0.2.0",
   "configurations": [
+    // First run `poetry debug info` and get your executable path
     {
       "name": "Python: Current File",
       "type": "debugpy",
@@ -11,9 +12,8 @@
       "program": "${file}",
       "console": "integratedTerminal",
       "cwd": "${fileDirname}",
-      "env": {
-        "PYTHONPATH": "${workspaceFolder}"
-      }
+      // "python": "${workspaceFolder}/.venv/bin/python"
+      "python": "${config:python.defaultInterpreterPath}"
     },
     {
       "name": "Debug invoke task: hello",
@@ -21,11 +21,7 @@
       "request": "launch",
       // https://code.visualstudio.com/docs/python/debugging#_module
       "module": "invoke",
-      "args": [
-        "hello",
-        "--name",
-        "hoge",
-      ],
+      "args": ["hello", "--name", "hoge"],
       "cwd": "${workspaceFolder}"
     }
   ]
